@@ -10,19 +10,6 @@ class Employee{
         return `name${this.name}, position${this.position},salary${this.salary}`
     }
 }
-// Task 2: Create a Department Class
-class Department {
-    constructor(name){
-        this.name = name;
-        this.employees = [];
-    }
-    addEmployee(employee){
-        this.employees.push(employee);
-    }
-    getDepartmentSalary(){
-        return this.employees.reduce((total,employee) => total + employee.salary, 0)
-    }
-}
 //Task 3: Create a Manager Class that Inherits from Employee
 class Manager extends Employee {
     constructor(name,salary,position,department,bonus){
@@ -33,11 +20,31 @@ class Manager extends Employee {
         return `name${this.name}, position${this.position}, salary${this.salary}, bonus${this.bonus}`
     }
 }
+// Task 2: Create a Department Class
+class Department {
+    constructor(name){
+        this.name = name;
+        this.employees = [];
+    }
+    addEmployee(employee){
+        this.employees.push(employee);
+    }
+    getDepartmentSalary(){
+        return this.employees.reduce((total,employee) => total + employee.salary, 0);
+    }
+
 
 //Task 4: Handle Bonuses for Managers
-calculateTotalSalaryWithBonus() {
-    return this.employees.reduce((total, manager)=> total + manager.salary + manager, 0)
+calculateTotalSalaryWithBonus(){
+    return this.employees.reduce ((total, employee) => {
+        if (employee in Manager) {
+            return total + employee.salary + employee.bonus;
+        }
+    }, 0 );
 }
+}
+
+
 //Task 5: Create and Manage Departments and Employees
 //Departments
 const engineering = new Department("Engineering");
