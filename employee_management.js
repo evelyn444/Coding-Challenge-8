@@ -23,3 +23,14 @@ class Department {
         return this.employees.reduce((total,manager) => total + manager.salary + manager, 0)
     }
 }
+//Task 3: Create a Manager Class that Inherits from Employee
+class Manager extends Employee {
+    constructor(name,salary,position,department,bonus){
+        super(name,salary,position,department,bonus);
+        this.bonus=bonus;
+    }
+    getDetails(){
+        return `name${this.name}, position${this.position}, salary${this.salary}, bonus${this.bonus}`
+    }
+}
+
