@@ -7,7 +7,7 @@ class Employee{
         this.department= department;
     }
     getDetails(){
-        return `name${this.name}, position${this.position},salary${this.salary}`
+        return `name${this.name}, position${this.position},salary${this.salary}` // getting employee details
     }
 }
 //Task 3: Create a Manager Class that Inherits from Employee (added this after task 1 because was easier to understand)
@@ -17,7 +17,7 @@ class Manager extends Employee {
         this.bonus=bonus;
     }
     getDetails(){
-        return `name${this.name}, position${this.position}, salary${this.salary}, bonus${this.bonus}`
+        return `name${this.name}, position${this.position}, salary${this.salary}, bonus${this.bonus}` // grabs info for manager from employee class
     }
 }
 // Task 2: Create a Department Class
@@ -36,7 +36,7 @@ class Department {
 
 //Task 4: Handle Bonuses for Managers
 calculateTotalSalaryWithBonus(){
-    return this.employees.reduce ((total, manager) => total + manager.salary + manager, 0) 
+    return this.employees.reduce ((total, manager) => total + manager.salary + manager, 0) // claculate total salary with bonus
         
 }
 }
