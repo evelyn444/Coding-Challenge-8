@@ -10,7 +10,7 @@ class Employee{
         return `name${this.name}, position${this.position},salary${this.salary}`
     }
 }
-//Task 3: Create a Manager Class that Inherits from Employee
+//Task 3: Create a Manager Class that Inherits from Employee (added this after task 1 because was easier to understand)
 class Manager extends Employee {
     constructor(name,salary,position,department,bonus){
         super(name,salary,position,department,bonus);
@@ -36,11 +36,8 @@ class Department {
 
 //Task 4: Handle Bonuses for Managers
 calculateTotalSalaryWithBonus(){
-    return this.employees.reduce ((total, employee) => {
-        if (employee in Manager) {
-            return total + employee.salary + employee.bonus;
-        }
-    }, 0 );
+    return this.employees.reduce ((total, manager) => total + manager.salary + manager, 0) 
+        
 }
 }
 
